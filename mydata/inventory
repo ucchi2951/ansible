@@ -1,2 +1,7 @@
 [switch]
 172.20.254.247
+
+[cisco:vars]
+ansible_ssh_user=isd_nw
+ansible_ssh_pass=fantasti9
+enable_pass=fantasti9
