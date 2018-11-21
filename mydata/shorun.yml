@@ -1,5 +1,4 @@
----
-- hosts: switch
+- hosts: all
   gather_facts: no
   connection: local
 
