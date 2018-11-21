@@ -1,0 +1,12 @@
+FROM centos
+MAINTAINER xxxxx@xxxxxxxxxxx.xx.xx
+RUN yum -y install epel-release && yum clean all
+RUN yum -y install python-pip && yum clean all
+RUN yum -y reinstall glibc-common && \
+    pip install --upgrade pip && \
+    pip install ansible==2.6.4 && \
+    pip install pywinrm && \
+    yum clean all && \
+    mkdir /mydata
+ENV LANG ja_JP.UTF-8
+CMD ["/bin/bash"]
