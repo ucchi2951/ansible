@@ -4,8 +4,7 @@
 
   tasks:
     - name: show run
-      local_action:
-        ios_command:
+      ios_command:
          authorize: yes
          commands:
           - show run
