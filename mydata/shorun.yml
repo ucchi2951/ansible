@@ -1,15 +1,20 @@
-- hosts: switch
+---
+- hosts: l2sw
   gather_facts: no
   connection: local
 
   tasks:
-    - name: show run
+    - name: show
       ios_command:
-         authorize: yes
-         commands:
+        authorize: yes
+        commands:
           - show run
-         provider:
+        provider:
           username: isd_nw
           password: fantasti9
           auth_pass: fantasti9
       register: result
+
+    - name: debug
+      debug:
+        msg: "{{ result.stdout_lines[0] }}"
