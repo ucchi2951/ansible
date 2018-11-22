@@ -3,16 +3,23 @@
   gather_facts: no
   connection: local
 
+  vars:
+    cli:
+      username: "{{ ansible_user }}"
+      password: "{{ ansible_password }}"
+      authorize: yes
+      auth_pass: "{{ cisco_enable_secret }}"
+
   tasks:
     - name: show
       ios_command:
-        authorize: yes
+#        authorize: yes
         commands:
           - show run
-        provider:
-          username: isd_nw
-          password: fantasti9
-          auth_pass: fantasti9
+        provider: "{{ cli }}"
+#          username: isd_nw
+#          password: fantasti9
+#          auth_pass: fantasti9
       register: result
 
     - name: debug

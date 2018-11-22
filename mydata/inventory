@@ -5,4 +5,4 @@
 [l2sw:vars]
 ansible_user=isd_nw
 ansible_password=fantasti9
-cisco_enable_secret=super
+cisco_enable_secret=fantasti9
