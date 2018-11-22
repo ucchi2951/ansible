@@ -11,15 +11,18 @@
       auth_pass: "{{ cisco_enable_secret }}"
 
   tasks:
+    - name: create vlan
+      ios_vlan:
+        vlan_id: 120
+        name: test_vlan
+        state: present
+        provider: "{{ cli }}"
+
     - name: show
       ios_command:
-#        authorize: yes
         commands:
           - show run
         provider: "{{ cli }}"
-#          username: isd_nw
-#          password: fantasti9
-#          auth_pass: fantasti9
       register: result
 
     - name: debug
